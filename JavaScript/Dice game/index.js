@@ -1,11 +1,5 @@
-window.onload = function() {
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-      var randomnumber1=getRandomInt(1,6);
-      var randomnumber2=getRandomInt(1,6);
+      var randomnumber1=Math.floor(Math.random()*6)+1;
+      var randomnumber2=Math.floor(Math.random()*6)+1;
       var image1=document.querySelector('.img1');
       var image2=document.querySelector('.img2');
       if(randomnumber1==1)
@@ -62,4 +56,3 @@ window.onload = function() {
       else{
       document.querySelector('h1').innerHTML='Player 2 wins';
       }
-}
