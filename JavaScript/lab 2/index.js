@@ -1,7 +1,6 @@
 function disapear()
 {
-    const div=document.getElementById('container');
-    div.style.display = 'none';
+    this.parentElement.style.display='none';
 }
 
 function inputData()
@@ -12,12 +11,14 @@ function inputData()
     const a= document.createElement('p')
     const btn = document.createElement('button')
     const div = document.createElement('div')
+    div.setAttribute("Id","remove");
     t.innerText = title;
     a.innerText = author;
     btn.innerText = "remove";
-    btn.addEventListner("click",()=> {
-        div.querySelector("#p").style.display = 'none';
-    }); 
+    btn.addEventListener("click",disapear)
+    /* btn.addEventListner("click",()=> {
+        btn.parentElement.style.display=
+    }); */ 
     const cont=document.getElementById('container');
     div.appendChild(t);
     div.appendChild(a);
