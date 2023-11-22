@@ -1,28 +1,58 @@
 
 const cont=document.getElementById('par');
-var progreesCount=0;
+var child=cont.firstElementChild;
+const nextbtn = document.getElementById('nxtBtn')
+const prevbtn = document.getElementById('preBtn')
+
 function forward()
 { 
-    if(progreesCount == 0)
-    {
-       const first =cont.firstElementChild;
-       const second = first.nextElementSibling;
-       first.classList.add("fill");
-       second.classList.add("fill");
-       var current=second.nextElementSibling;  
-       progreesCount++;
+   if(child.previousElementSibling==null){
+        prevbtn.disabled=false;
     }
-    else{
-   if(current.nextElementSibling && progreesCount!=0)
-   {
-    current.classList.add("fill");
-    current.nextElementSibling.classList.add("fill");
-    current=current.nextElementSibling.nextElementSibling;
-   }
-   else
-   {
-    current.classList.add("fill");
-   }
+    if(child.classList.contains('fill'))
+    {
+        child=child.nextElementSibling;
+        child.classList.toggle('active');
+        if(child.nextElementSibling==null){
+            nextbtn.disabled=true;
+            return;
+        }
+        else {
+            child=child.nextElementSibling;
+            child.classList.toggle('fill');
+        }
+    }
+    else {
+        child.classList.toggle('fill');
+        child=child.nextElementSibling;
+        child.classList.toggle('fill');
+    
 }
 }
 
+function previous()
+{
+    if(child.nextElementSibling==null){
+        nextbtn.disabled=false;
+    }
+    if(child.classList.contains('fill'))
+    {
+        child.classList.remove('fill');
+        child=child.previousElementSibling;
+        child.classList.remove('fill');
+    }
+    else {
+        if(child.previousElementSibling) {
+            child=child.previousElementSibling;
+            child.classList.remove('fill');
+            if(child.previousElementSibling==null){
+                prevbtn.disabled=true;
+                return;
+            }
+            else {
+                child=child.previousElementSibling;
+                child.classList.remove('fill');
+            }
+        }
+    }
+}
