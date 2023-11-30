@@ -52,4 +52,48 @@ function mycallback(error,src){
     alert("Call back" +src);
 };
 
-loadscript("https://cdn.jsdeeeelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",hello);
+loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",mycallback);
+
+//problem with callback is that a whole function is provided to the function whch can be dangerous in case of minor error
+//if somebody pass true in onload success 
+//and in call back it calls a emergency function although there is no emergency
+//we solve this problem using promises
+loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+        if(error)
+        {console.log(error)
+        return;
+        }
+        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+            if(error)
+            {console.log(error)
+            return;
+            }
+                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                    if(error)
+                        {console.log(error)
+                        return;
+                        }
+                        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                            if(error)
+                            {console.log(error)
+                            return;
+                            }
+                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                            if(error)
+                            {console.log(error)
+                            return;
+                            }
+                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                                if(error)
+                                {console.log(error)
+                                return;
+                                }
+                                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){}
+    )}
+    )}
+    )}
+    )
+})
+})
+})
+
