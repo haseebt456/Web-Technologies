@@ -19,7 +19,7 @@ console.log("end");
 //hey,i am haseeb
 //But code didn't stopped rather it has just scheduled that settimout action
 
-//Callback
+//Callback - asyncronous programming
 
 function loadscript(src,Callback)
 {
@@ -27,16 +27,29 @@ function loadscript(src,Callback)
     script.src = src;
     script.onload = function (){
         console.log("loaded script with src : "+src);
-        Callback(src);
+        Callback(null,src);
+    }
+    script.onerror = function(){
+        console.log("Error loading scrip with src : "+src);
+        Callback(new Error("src got some error"));
     }
     document.body.appendChild(script);
 };
 
-function hello(src){
+function hello(error,src){
+    if(error)
+    {
+        console.log(error);
+        return;
+    }
     alert("hello"+src)
 }
-function mycallback(src){
+function mycallback(error,src){
+    if(error)
+    {console.log(error)
+        return;
+    }
     alert("Call back" +src);
 };
 
-loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",mycallback);
+loadscript("https://cdn.jsdeeeelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",hello);
