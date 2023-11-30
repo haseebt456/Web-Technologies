@@ -27,16 +27,16 @@ function loadscript(src,Callback)
     script.src = src;
     script.onload = function (){
         console.log("loaded script with src : "+src);
-        Callback();
+        Callback(src);
     }
     document.body.appendChild(script);
 };
 
-function hello(){
-    alert("hello")
+function hello(src){
+    alert("hello"+src)
 }
-function mycallback(){
-    alert("Call back");
+function mycallback(src){
+    alert("Call back" +src);
 };
 
 loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",mycallback);
