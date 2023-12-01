@@ -12,10 +12,10 @@ let p2 = new Promise((ressolve,reject)=>{
 
     setTimeout(()=>{
         //console.log("i am a promise and i am rejected");
-        reject(new Error("i am an error"));
+        reject(new Error("i am an error in p2"));
     },5000)
 });
-
+//ressolve and reject are two callbacks provided by javascript 
 
 /* console.log(p1);
 console.log(p2); 
@@ -27,4 +27,11 @@ p1.then((value)=>{
 
 p2.catch((error)=>{
     console.log(error);
-})
+});
+
+let p3 = new Promise((ressolve,reject)=>{
+    console.log("p3 pending");
+    ressolve("done")
+},6000);
+
+p3.then(alert);
