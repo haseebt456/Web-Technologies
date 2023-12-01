@@ -25,16 +25,18 @@ p1.then((value)=>{
     console.log(value);
 });
 
-/* p2.catch((error)=>{
+p2.catch((error)=>{
     console.log(error);
-}); */
+});
 //alternate way
 
-p2.then((value)=>{
+/* p2.then((value)=>{
     console.log(value);
 },(error)=>{
     console.log(error);
 })
+ */
+
 
 /* let p3 = new Promise((ressolve,reject)=>{
     console.log("p3 pending");

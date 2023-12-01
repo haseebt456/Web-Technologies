@@ -58,37 +58,39 @@ loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundl
 //if somebody pass true in onload success 
 //and in call back it calls a emergency function although there is no emergency
 //we solve this problem using promises
+
+//pyramid of doom
 loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
         if(error)
         {console.log(error)
         return;
         }
-        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap2.bundle.min.js", function mycallback(error,src){
             if(error)
             {console.log(error)
             return;
             }
-                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap3.bundle.min.js", function mycallback(error,src){
                     if(error)
                         {console.log(error)
                         return;
                         }
-                        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                        loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap4.bundle.min.js", function mycallback(error,src){
                             if(error)
                             {console.log(error)
                             return;
                             }
-                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap5.bundle.min.js", function mycallback(error,src){
                             if(error)
                             {console.log(error)
                             return;
                             }
-                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){
+                            loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap6.bundle.min.js", function mycallback(error,src){
                                 if(error)
                                 {console.log(error)
                                 return;
                                 }
-                                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", function mycallback(error,src){}
+                                loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap7.bundle.min.js", function mycallback(error,src){}
     )}
     )}
     )}
@@ -97,3 +99,6 @@ loadscript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundl
 })
 })
 
+//as we can see it has created a pyramid of callback
+//it is called pyramid of doom or callback hell
+//promises will help us when we need to handle multiple callbacks
