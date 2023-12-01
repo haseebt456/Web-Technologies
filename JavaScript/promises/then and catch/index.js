@@ -23,4 +23,8 @@ console.log(p2);
 */
 p1.then((value)=>{
     console.log(value);
-}) 
+});
+
+p2.catch((error)=>{
+    console.log(error);
+})
