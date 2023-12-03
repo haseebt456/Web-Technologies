@@ -27,14 +27,24 @@ console.log("Fetched karachi weather : "+karachiW);
 
 return [lahoreW,karachiW];
 }
-console.log("welcome to weather app");
-let a=getWeather();
 
-a.then((value)=>{
+//execution might stop in async function 
+//but execution of different async functions do not stop
+const cherry = ()=>{
+    console.log("Hey I am cherry and i am not waiting");
+}
+console.log("welcome to weather app");
+let a = getWeather();
+cherry();
+
+a.then((value)=>{//because a is a promise
     console.log(value);
 })
 //in real we will not create new promises like this rather promises will be returned automaticaly like in mongoose
 //we are trying to mimick 
+
+
+
 /* async function myfunction()
 {
     return 5;
