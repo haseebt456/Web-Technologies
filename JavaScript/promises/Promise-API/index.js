@@ -67,7 +67,7 @@ promise_race.then((value)=>{
 //In case of rejection and it is ealiest executed then it shows error
 //for this problem we use .any
 let promse_any = Promise.any([p1,p_rejected,p3]);
-
+//throw aggregate error if all promise are rejected
 promse_any.then((value)=>{
     console.log("Wait for any promise to fullfill && not rejected");
     console.log(value);
