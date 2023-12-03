@@ -16,13 +16,23 @@ let karachiWeather = new Promise((resolve,reject)=>{
 /* lahoreWeather.then(alert);
 karachiWeather.then(alert);
  */
-let lahoreW = await lahoreWeather;
+console.log("Fetching lahore weather please wait...");
+let lahoreW = await lahoreWeather;//execution stops here due to await keyword resolve this then move forward
+
+console.log("Fetched lahore weather : "+lahoreW);
+console.log("Fetching karachi weather please wait...");
+
 let karachiW = await karachiWeather;
+console.log("Fetched karachi weather : "+karachiW);
+
 return [lahoreW,karachiW];
 }
 console.log("welcome to weather app");
 let a=getWeather();
-console.log(a);
+
+a.then((value)=>{
+    console.log(value);
+})
 //in real we will not create new promises like this rather promises will be returned automaticaly like in mongoose
 //we are trying to mimick 
 /* async function myfunction()
