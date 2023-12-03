@@ -2,7 +2,7 @@
 let p1 = new Promise((resolve,reject)=>{
     setTimeout(()=>{
         resolve("value 1");
-    },1000)
+    },4000)
 })
 let p2 = new Promise((resolve,reject)=>{
     setTimeout(()=>{
@@ -18,7 +18,7 @@ let p3 = new Promise((resolve,reject)=>{
 let p_rejected = new Promise((resolve,reject)=>{
     setTimeout(()=>{
         reject(new Error("Error occured"));
-    })
+    },1000)
 })
 /* p1.then((value)=>{
     console.log(value);
@@ -63,4 +63,12 @@ let promise_race = Promise.race([p1,p2,p3]);
 promise_race.then((value)=>{
     console.log("Promise.race showing value of earliest ressolved promise");
     console.log(value);
-})
+});
+//In case of rejection and it is ealiest executed then it shows error
+//for this problem we use .any
+let promse_any = Promise.any([p1,p_rejected,p3]);
+
+promse_any.then((value)=>{
+    console.log("Wait for any promise to fullfill && not rejected");
+    console.log(value);
+});
