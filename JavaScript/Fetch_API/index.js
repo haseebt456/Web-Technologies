@@ -7,7 +7,7 @@ const Addrecipe = async (resipe)=>{
         },
         body: JSON.stringify(resipe)
     }
-    let p = await fetch("https://usman-fake-api.herokuapp.com/api/recipes",options);
+    let p = await fetch("https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/S83UAltkfWmJPSLpFDoC/scores/",options);
     let response = await p.json();
     return response;
 };
@@ -18,12 +18,11 @@ const getRecipe = async (_id)=>{
     return response;
 }
 const mainFunc = async ()=>{
-    /* let resipe = {
-        title:"How to make Coffee",
-        body: "Add hot milk to cup and add coffe and mix it for 2 min"
+    let resipe = {
+        user:"Shan Masood",
+        score: "159"
     };
     let recipe=await Addrecipe(resipe);
-    console.log(recipe); */
-   console.log(getRecipe("65708b18b06efd0014dee8ba"));
+    console.log(recipe);
 }
 mainFunc();
