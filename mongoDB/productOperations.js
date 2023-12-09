@@ -5,8 +5,12 @@ const createProduct = async (title,price,tags) =>{
     product.title = title;
     product.price = price;
     product.tags = tags;
-    await product.save();
+    await product.save();//save data to database
     return product;
 } 
-
-module.exports.createProduct = createProduct;
+const getAllProducts = async ()=>{
+    let products = await ProductModel.find();
+    return products;
+}
+module.exports.createProduct = createProduct;;
+module.exports.getAllProducts = getAllProducts;
