@@ -7,5 +7,7 @@ const poroductSchema = mongoose.Schema({
 });
 //defining schema as mongoDB is schema less
 
-const products = mongoose.model("products",poroductSchema);//model of schema
+const products = mongoose.model("products",poroductSchema);//model of schema and create collection products
 module.exports = products;
+//model will be used as class 
+// and we can create objects
