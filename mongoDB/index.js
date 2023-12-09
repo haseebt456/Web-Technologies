@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const {createProduct} = require("./productOperations");
-const {getAllProducts} = require("./productOperations");
-const {deleteProduct} = require("./productOperations");
+const {createProduct,getAllProducts,deleteProduct,updateProduct} = require("./productOperations");
 app.use(express.json());
 mongoose.connect("mongodb://0.0.0.0:27017/testDB",{
     useNewUrlParser: true, useUnifiedTopology: true
@@ -14,8 +12,10 @@ mongoose.connect("mongodb://0.0.0.0:27017/testDB",{
     //console.log(product);;
     //let products = await getAllProducts();;
     //console.log(products);
-    let product2 = await deleteProduct("6574a6d71eae1308ea0fda59");
-    console.log(product2+"is deleted");
+    //let product2 = await deleteProduct("6574b7406bd54d4ef1010aef");
+    //console.log(product2+"is deleted");
+    let productUpd = await updateProduct('6574bd85636f612f3fe6c9de',"Mobile",150000,["black","iphone"]);
+    console.log(productUpd);
 })
 .catch((err)=>{
     console.log("Error connecting");

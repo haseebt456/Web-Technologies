@@ -13,9 +13,19 @@ const getAllProducts = async ()=>{
     return products;
 }
 const deleteProduct = async (_id)=>{
-    let product = await ProductModel.findOneAndDelete(_id)
+    let product = await ProductModel.findByIdAndDelete(_id)
+    return product;
+}
+
+const updateProduct = async (_id,title,price,tags) =>{
+    let product = await ProductModel.findById(_id);
+    product.title  =title;
+    product.price = price;
+    product.tags = tags;
+    await product.save();
     return product;
 }
 module.exports.createProduct = createProduct;;
 module.exports.getAllProducts = getAllProducts;
 module.exports.deleteProduct = deleteProduct;
+module.exports.updateProduct = updateProduct;
