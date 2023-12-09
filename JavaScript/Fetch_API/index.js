@@ -17,6 +17,7 @@ const getRecipe = async (_id)=>{
     let response = await p.json();
     return response;
 }
+
 const mainFunc = async ()=>{
     let resipe = {
         user:"Shan Masood",
