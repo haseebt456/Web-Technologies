@@ -8,7 +8,8 @@ mongoose.connect("mongodb://0.0.0.0:27017/testDB",{
 })
 .then(async ()=>{
     console.log("connection to mongoDb sucessful");
-    await createProduct("Laptop",100000,["black","lenovo"],"yes");
+    let product=await createProduct("Laptop",100000,["black","lenovo"]);
+    console.log(product);
 })
 .catch((err)=>{
     console.log("Error connecting");
