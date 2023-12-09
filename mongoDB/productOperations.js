@@ -12,5 +12,10 @@ const getAllProducts = async ()=>{
     let products = await ProductModel.find();
     return products;
 }
+const deleteProduct = async (_id)=>{
+    let product = await ProductModel.findOneAndDelete(_id)
+    return product;
+}
 module.exports.createProduct = createProduct;;
 module.exports.getAllProducts = getAllProducts;
+module.exports.deleteProduct = deleteProduct;
