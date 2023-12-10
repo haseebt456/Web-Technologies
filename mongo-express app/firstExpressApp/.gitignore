@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+lib/
+vendor/
+
+# Environment
+.env
+.env.test
+
+# Debugging
+.vscode/
+.DS_Store
+
+# Build directories
+dist/
+out/
+
+# Editor directories and files
+.idea/
+*.suo
+*.ntvs*
+
+# OS generated files
+ehthumbs.db
+Thumbs.db
